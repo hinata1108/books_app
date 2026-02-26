@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState,useEffect } from 'react'
+import {BooksList} from './components/BooksList'
+import {SearchBar} from './components/Searchbar'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+type book = {
+    title:string,
+    star:number,
+    price:number,
+    image:string
+    // 他のプロパティもあれば追加
 }
+
+function App() {
+    const [search,setSearch] = useState('')
+
+    const [books,setBooks] = useState<book[]>([])
+
+    useEffect(()=>{
+    fetch('http://localhost:8000/books')
+    .then((res)=>res.json())
+    .then((data)=>setBooks(data))
+},[])
+
+    const filteredBooks = search 
+        ? books.filter((book)=>book.title.toLowerCase().includes(search.toLowerCase()))
+        : books
+
+    return (
+        <div className="app">
+            <SearchBar search={search} setSearch={setSearch}/>
+            <BooksList books={filteredBooks}/>
+
+
+        </div>
+        )}
+
 
 export default App
