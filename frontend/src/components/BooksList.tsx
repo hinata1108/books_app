@@ -13,9 +13,15 @@ type Props = {
 
 export const BooksList = ({books}:Props)=> {
     return(
+<<<<<<< HEAD
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {books.map((book)=>
             <div key={book.title} className="rounded-2xl border bg-white p-4 shadow-md">
+=======
+        <div>
+            {books.map((book)=>
+            <div key={book.title}>
+>>>>>>> main
                 <h2>{book.title}</h2>
                 <p>Star:{book.star}</p>
                 <p>Price:{book.price}</p>
