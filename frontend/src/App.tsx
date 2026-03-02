@@ -7,7 +7,7 @@ type book = {
     title:string,
     star:number,
     price:number,
-    image:string
+    img:string
     // 他のプロパティもあれば追加
 }
 
