@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
+  "type":"module",
   "homepage": "https://hinata1108.github.io/books_app",
   "scripts": {
     "dev": "vite",
