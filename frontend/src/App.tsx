@@ -17,7 +17,7 @@ function App() {
     const [books,setBooks] = useState<book[]>([])
 
     useEffect(()=>{
-    fetch('http://localhost:8000/books')
+    fetch('https://books-app-tkm7.onrender.com/books')
     .then((res)=>res.json())
     .then((data)=>setBooks(data))
 },[])
