@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from screiping import scrape_books
+from backend.screiping import scrape_books
 import uvicorn
 app=FastAPI()
 
