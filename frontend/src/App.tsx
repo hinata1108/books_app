@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import {BooksList} from './components/BooksList'
 import {SearchBar} from './components/Searchbar'
+
 import './App.css'
 
 type book = {
@@ -29,7 +30,7 @@ function App() {
     return (
         <div className="app">
             <SearchBar search={search} setSearch={setSearch}/>
-            <BooksList books={filteredBooks}/>
+            <BooksList books={filteredBooks} searchText={search}/>
 
 
         </div>
