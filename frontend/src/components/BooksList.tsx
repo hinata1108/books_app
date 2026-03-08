@@ -1,5 +1,5 @@
 import React from 'react';
-import {SearchText} from './Searchtext'
+import {SearchText} from './SearchText'
 
 type Book = {
     title: string;
